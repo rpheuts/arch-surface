@@ -1,6 +1,3 @@
-# Use when bootstrapping
-#FROM rpheuts/arch-build 
-
 FROM rpheuts/archlinux
 
 RUN mkdir /run/shm
