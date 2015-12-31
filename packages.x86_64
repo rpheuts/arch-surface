@@ -1,3 +1,9 @@
 net-tools
 dhcpcd
 dialog
+haveged
+intel-ucode
+memtest86+
+mkinitcpio-nfs-utils
+nbd
+zsh

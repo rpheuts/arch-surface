@@ -62,6 +62,7 @@ out_dir=out
 script_path=$(readlink -f ${0%/*})/archiso/
 
 mkarchiso -v -w "${work_dir}" -D "${install_dir}" init
+mkarchiso -v -w "${work_dir}" -D "${install_dir}" -p "$(grep -h -v ^# ${script_path}/packages.{both,${arch}})" install
 
 cp ../linux-4.3.3/arch/x86_64/boot/bzImage work/airootfs/boot/vmlinuz-linux
 cp -r /lib/modules/* work/airootfs/lib/modules/
