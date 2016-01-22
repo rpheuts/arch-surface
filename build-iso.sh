@@ -1,4 +1,4 @@
-KERNEL="4.3.3"
+KERNEL="4.4.0"
 KERNEL_STABLE="true"
 
 if [[ ! -d /work ]]
@@ -64,7 +64,12 @@ script_path=$(readlink -f ${0%/*})/archiso/
 mkarchiso -v -w "${work_dir}" -D "${install_dir}" init
 mkarchiso -v -w "${work_dir}" -D "${install_dir}" -p "$(grep -h -v ^# ${script_path}/packages.{both,${arch}})" install
 
-cp ../linux-4.3.3/arch/x86_64/boot/bzImage work/airootfs/boot/vmlinuz-linux
+mkarchiso -v -w "${work_dir}" -D "${install_dir}" -r "pacman-key --init" run
+mkarchiso -v -w "${work_dir}" -D "${install_dir}" -r "pacman-key --populate" run
+mkarchiso -v -w "${work_dir}" -D "${install_dir}" -r "pacman-key --refresh-keys" run
+
+
+cp ../linux-${KERNEL}/arch/x86_64/boot/bzImage work/airootfs/boot/vmlinuz-linux
 cp -r /lib/modules/* work/airootfs/lib/modules/
 
 mkdir -p ${work_dir}/airootfs/etc/initcpio/hooks

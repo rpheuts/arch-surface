@@ -7,3 +7,9 @@ memtest86+
 mkinitcpio-nfs-utils
 nbd
 zsh
+wpa_supplicant
+wpa_actiond
+ifplugd
+ppp
+nano
+arch-install-scripts

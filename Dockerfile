@@ -10,6 +10,4 @@ RUN pacman -S --noconfirm wget bc
 
 WORKDIR /work/
 
-ADD . /work/
-
 ENTRYPOINT exec /work/build-iso.sh
